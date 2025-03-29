@@ -11,7 +11,7 @@
     <script type="text/javascript">
         (function() {
             // Initialize EmailJS with your user ID
-            emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+            emailjs.init("_aSFCvXEp-CaA5k_2"); // Replace with your EmailJS user ID
         })();
     </script>
     <style>
@@ -779,185 +779,12 @@
             opacity: 0.7;
             cursor: not-allowed;
         }
-
-        .submit-button {
-            width: 100%;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 1rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .submit-button:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .submit-button i {
-            transition: transform 0.3s ease;
-        }
-
-        .submit-button:hover i {
-            transform: translateX(5px);
-        }
-
-        /* Mobile Navigation */
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            /* Navigation */
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                padding: 1rem;
-                flex-direction: column;
-                gap: 1rem;
-                box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            /* Hero Section */
-            .hero h1 {
-                font-size: 2rem;
-                padding: 0 1rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                padding: 0 1rem;
-            }
-
-            /* Services Grid */
-            .services-grid {
-                grid-template-columns: 1fr;
-                padding: 1rem;
-            }
-
-            /* Pricing Cards */
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                padding: 1rem;
-            }
-
-            .pricing-card.popular {
-                transform: scale(1);
-            }
-
-            /* Contact Form */
-            .contact-container {
-                grid-template-columns: 1fr;
-                padding: 1rem;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
-            }
-
-            /* Form Elements */
-            input, 
-            select, 
-            textarea {
-                font-size: 16px; /* Prevents zoom on mobile */
-            }
-
-            /* Buttons */
-            .cta-button,
-            .submit-button {
-                width: 100%;
-                padding: 0.8rem 1.5rem;
-            }
-
-            /* Modal */
-            .modal-content {
-                width: 95%;
-                padding: 1.5rem;
-                margin: 1rem auto;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Small phones */
-        @media screen and (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .contact-info {
-                padding: 1rem;
-            }
-        }
-
-        /* Landscape mode */
-        @media screen and (max-height: 500px) and (orientation: landscape) {
-            .hero {
-                min-height: 120vh;
-            }
-
-            .modal-content {
-                max-height: 95vh;
-            }
-        }
-
-        /* Touch-friendly improvements */
-        @media (hover: none) {
-            .nav-links a,
-            .service-card,
-            .pricing-card,
-            .submit-button {
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            .service-card:hover,
-            .pricing-card:hover {
-                transform: none;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <a href="#" class="logo">Eclipticsite</a>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
@@ -1130,70 +957,84 @@
             </div>
         </div>
 
-        <!-- Custom Quote Modal -->
-        <div id="quoteModal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
+        <!-- Contact Section with Integrated Quote Form -->
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+977 9703574761</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/7yathartha5_shrestha3" target="_blank">@7yathartha5_shrestha3</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>ytsshrts@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="quote-form" onsubmit="sendEmail(event)">
                 <div class="quote-header">
                     <i class="fas fa-paper-plane"></i>
                     <h2>Get Your Custom Quote</h2>
                     <p>Tell us about your project and we'll get back to you within 24 hours</p>
                 </div>
+                <input type="hidden" name="form_type" value="custom_quote">
+                <input type="hidden" name="package_type" id="package_type">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
 
-                <form class="quote-form" action="https://formsubmit.co/el/suyati/" method="POST">
-                    <input type="hidden" name="form_type" value="custom_quote">
-                    <input type="hidden" name="package_type" id="package_type">
-                    
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label for="preferred_currency">Preferred Currency</label>
-                            <select name="preferred_currency" id="preferred_currency" required>
-                                <option value="">Select Currency</option>
-                                <option value="USD">USD ($)</option>
-                                <option value="EUR">EUR (€)</option>
-                                <option value="GBP">GBP (£)</option>
-                                <option value="NPR">NPR (रू)</option>
-                                <option value="INR">INR (₹)</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group half">
-                            <label for="proposed_budget">Proposed Budget</label>
-                            <input type="number" id="proposed_budget" name="proposed_budget" placeholder="Enter amount" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="timeline">Project Timeline</label>
-                        <select name="timeline" id="timeline" required>
-                            <option value="">Select Timeline</option>
-                            <option value="urgent">Urgent (Within 1 week)</option>
-                            <option value="normal">Normal (2-3 weeks)</option>
-                            <option value="relaxed">Relaxed (1 month+)</option>
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="preferred_currency">Preferred Currency</label>
+                        <select name="preferred_currency" id="preferred_currency" required>
+                            <option value="">Select Currency</option>
+                            <option value="USD">USD ($)</option>
+                            <option value="EUR">EUR (€)</option>
+                            <option value="GBP">GBP (£)</option>
+                            <option value="NPR">NPR (रू)</option>
+                            <option value="INR">INR (₹)</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="requirements">Project Requirements</label>
-                        <textarea id="requirements" name="requirements" placeholder="Tell us about your specific needs and requirements" rows="4"></textarea>
+                    <div class="form-group half">
+                        <label for="proposed_budget">Proposed Budget</label>
+                        <input type="number" id="proposed_budget" name="proposed_budget" placeholder="Enter amount" required>
                     </div>
+                </div>
 
-                    <button type="submit" class="submit-quote">
-                        <span>Get Quote</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </form>
-            </div>
+                <div class="form-group">
+                    <label for="timeline">Project Timeline</label>
+                    <select name="timeline" id="timeline" required>
+                        <option value="">Select Timeline</option>
+                        <option value="urgent">Urgent (Within 1 week)</option>
+                        <option value="normal">Normal (2-3 weeks)</option>
+                        <option value="relaxed">Relaxed (1 month+)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="requirements">Project Requirements</label>
+                    <textarea id="requirements" name="requirements" placeholder="Tell us about your specific needs and requirements" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="submit-quote">
+                    <span>Get Quote</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
         </div>
     </section>
 
@@ -1218,30 +1059,25 @@
                 </div>
             </div>
 
-            <form class="contact-form" action="https://formsubmit.co/el/suyati/" method="POST">
+            <form class="contact-form" id="contactForm" onsubmit="return sendEmail(event)">
                 <h2>Send Us a Message</h2>
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="subject" placeholder="Subject" required>
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
                 </div>
                 <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
                 </div>
-                
-                <!-- FormSubmit Configuration -->
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
-                <input type="hidden" name="_autoresponse" value="Thank you for your message. We will get back to you soon!">
-                
-                <button type="submit" class="submit-button">
-                    <span>Send Message</span>
-                    <i class="fas fa-paper-plane"></i>
+                <button type="submit" id="submit-btn">
+                    <span class="button-text">Send Message</span>
+                    <span class="button-loader hidden">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
                 </button>
             </form>
         </div>
@@ -1314,24 +1150,10 @@
             });
         }
 
-        // Modal functionality
+        // Set package type when clicking Get Custom Quote button
         function openCustomQuote(packageType) {
-            const modal = document.getElementById('quoteModal');
             document.getElementById('package_type').value = packageType;
-            modal.style.display = 'block';
-        }
-
-        // Close modal when clicking the X
-        document.querySelector('.close-modal').onclick = function() {
-            document.getElementById('quoteModal').style.display = 'none';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('quoteModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
+            document.querySelector('.quote-form').scrollIntoView({ behavior: 'smooth' });
         }
 
         // Store base prices on load
@@ -1344,11 +1166,13 @@
         function sendEmail(event) {
             event.preventDefault();
 
-            // Get the form elements
+            // Get form elements
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+            const currencySelect = document.querySelector('select[name="preferred_currency"]');
+            const timelineSelect = document.querySelector('select[name="timeline"]');
+            const requirementsTextarea = document.querySelector('textarea[name="requirements"]');
             
             // Show loading state
             const submitBtn = document.getElementById('submit-btn');
@@ -1359,26 +1183,40 @@
             buttonLoader.classList.remove('hidden');
             submitBtn.disabled = true;
 
-            // EmailJS send form
+            // Get form values
+            const currency = currencySelect.value || 'USD';
+            let timelineValue = '2-3 weeks';
+            
+            if (timelineSelect.value === 'Relaxed') {
+                timelineValue = '1 month+';
+            } else if (timelineSelect.value === 'Urgent') {
+                timelineValue = 'Within 24 hours';
+            }
+
+            // Prepare email template parameters
             const templateParams = {
                 from_name: name,
                 from_email: email,
                 subject: subject,
-                message: message,
-                to_email: 'ytsshrts@gmail.com'
+                message: requirementsTextarea.value,
+                to_email: 'ytsshrts@gmail.com',
+                preferred_currency: currency,
+                timeline: timelineValue
             };
 
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            // Send email using EmailJS
+            emailjs.send('service_z3wzl4j', 'template_hcsyucg', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     showMessage('success-message');
                     document.getElementById('contactForm').reset();
-                }, function(error) {
+                })
+                .catch(function(error) {
                     console.log('FAILED...', error);
                     showMessage('error-message');
                 })
                 .finally(() => {
-                    // Reset button state
+                    // Remove loading states and enable submit button
                     buttonText.classList.remove('hidden');
                     buttonLoader.classList.add('hidden');
                     submitBtn.disabled = false;
@@ -1403,29 +1241,6 @@
                 block: 'start'
             });
         }
-
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const menuBtn = document.querySelector('.mobile-menu-btn i');
-            
-            navLinks.classList.toggle('active');
-            menuBtn.classList.toggle('fa-bars');
-            menuBtn.classList.toggle('fa-times');
-        }
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-                document.querySelector('.mobile-menu-btn i').classList.add('fa-bars');
-                document.querySelector('.mobile-menu-btn i').classList.remove('fa-times');
-            });
-        });
-
-        // Prevent zoom on input focus for iOS
-        document.addEventListener('gesturestart', function(e) {
-            e.preventDefault();
-        });
     </script>
 </body>
 </html>
