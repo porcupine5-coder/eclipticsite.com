@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eclipticsite - Get your website today">
+    <title>Eclipticsite | Modern E-commerce Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your user ID
+            emailjs.init("_aSFCvXEp-CaA5k_2"); // Replace with your EmailJS user ID
+        })();
+    </script>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #4338ca;
+            --accent-color: #06b6d4;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Add a ripple effect */
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
+        }
+
+        .cta-button:active::after {
+            transform: scale(0, 0);
+            opacity: .3;
+            transition: 0s;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--text-dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem 0;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 5%;
+            background: var(--bg-light);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            padding: 2rem;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            width: 2rem;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .contact-form button {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-light);
+            border-radius: 50%;
+            color: var(--primary-color);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: rotate(360deg);
+        }
+
+        .feature-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                order: 2;
+            }
+
+            .contact-form {
+                order: 1;
+            }
+        }
+
+        .pricing-section {
+            padding: 6rem 5%;
+            background: var(--bg-light);
+        }
+
+        .currency-selector {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .currency-selector select {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 2px solid var(--primary-color);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.popular {
+            transform: scale(1.05);
+            border: 2px solid var(--primary-color);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 3rem;
+            transform: rotate(45deg);
+            font-size: 0.9rem;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .negotiable {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .features i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .pricing-cta {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-cta:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Animation for features */
+        .feature-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.4s; }
+        .feature-card:nth-child(4) { animation-delay: 0.6s; }
+        .feature-card:nth-child(5) { animation-delay: 0.8s; }
+        .feature-card:nth-child(6) { animation-delay: 1s; }
+        .feature-card:nth-child(7) { animation-delay: 1.2s; }
+        .feature-card:nth-child(8) { animation-delay: 1.4s; }
+        .feature-card:nth-child(9) { animation-delay: 1.6s; }
+
+
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 550px;
+            max-height: 85vh;
+            width: 90%;
+            margin: 0 auto;
+            position: relative;
+            animation: modalSlideIn 0.4s ease;
+            overflow-y: auto;
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .quote-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-header i {
+            font-size: 2rem;
+        }
+
+        .quote-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-header p {
+            color: var(--text-light);
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .quote-form {
+            margin-top: 1rem;
+        }
+
+        .quote-form input,
+        .quote-form select,
+        .quote-form textarea {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .quote-form input:focus,
+        .quote-form select:focus,
+        .quote-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .submit-quote {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-quote:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .submit-quote i {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-quote:hover i {
+            transform: translateX(5px);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .modal {
+                padding: 1rem 0;
+            }
+
+            .modal-content {
+                margin: 0 auto;
+                max-height: 90vh;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .alert {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            animation: slideIn 0.5s ease;
+            z-index: 1000;
+        }
+
+        .success {
+            background-color: #10B981;
+        }
+
+        .error {
+            background-color: #EF4444;
+        }
+
+        .button-loader {
+            display: inline-block;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Update existing button styles */
+        .contact-form button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">Eclipticsite</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your E-commerce Vision</h1>
+            <p>Powerful solutions for modern online businesses</p>
+            <button class="cta-button" onclick="scrollToPricing()">Get Today</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-shopping-cart service-icon"></i>
+                <h3>E-commerce Solutions</h3>
+                <p>Complete online store setup with payment integration</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-line service-icon"></i>
+                <h3>Analytics & Insights</h3>
+                <p>Detailed reporting and performance tracking</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt service-icon"></i>
+                <h3>Mobile Optimization</h3>
+                <p>Responsive design for all devices</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <!-- Core Features -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Fast Development</h3>
+                <p>Quick turnaround time with quality code and modern development practices</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Responsive Design</h3>
+                <p>Perfectly optimized for all devices - mobile, tablet, and desktop</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Clean Code</h3>
+                <p>Well-structured, maintainable, and efficient codebase</p>
+            </div>
+
+            <!-- Technical Features -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>SEO Optimized</h3>
+                <p>Built with search engine optimization best practices</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Security First</h3>
+                <p>Enhanced security measures to protect your website and data</p>
+            </div>
+
+            
+
+            <!-- Business Features -->
+           
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>Flexible Pricing</h3>
+                <p>Negotiable rates and customizable packages to fit your budget</p>
+            </div>
+
+            
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <h2 class="section-title">Pricing Plans</h2>
+        <div class="currency-selector">
+            <label for="currency">Select Currency:</label>
+            <select id="currency" onchange="updatePrices()">
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="NPR">NPR (रू)</option>
+                <option value="INR">INR (₹)</option>
+            </select>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Basic Website</h3>
+                    <div class="price">
+                        <span class="currency-symbol">$</span>
+                        <span class="amount">25</span>
+                    </div>
+                    <p class="negotiable">Price is negotiable</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Responsive Design</li>
+                    <li><i class="fas fa-check"></i> 5 Pages</li>
+                    <li><i class="fas fa-check"></i> Contact Form</li>
+                    <li><i class="fas fa-check"></i> Basic SEO</li>
+                </ul>
+                <button class="pricing-cta" onclick="openCustomQuote('Basic Website')">Get Custom Quote</button>
+            </div>
+
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <div class="pricing-header">
+                    <h3>E-commerce Website</h3>
+                    <div class="price">
+                        <span class="currency-symbol">$</span>
+                        <span class="amount">75</span>
+                    </div>
+                    <p class="negotiable">Price is negotiable</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> All Basic Features</li>
+                    <li><i class="fas fa-check"></i> E-commerce Integration</li>
+                    <li><i class="fas fa-check"></i> Payment Gateway</li>
+                    <li><i class="fas fa-check"></i> Product Management</li>
+                </ul>
+                <button class="pricing-cta" onclick="openCustomQuote('E-commerce Website')">Get Custom Quote</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Custom Web App</h3>
+                    <div class="price">
+                        <span class="currency-symbol">$</span>
+                        <span class="amount">199</span>
+                    </div>
+                    <p class="negotiable">Price is negotiable</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Custom Development</li>
+                    <li><i class="fas fa-check"></i> Advanced Features</li>
+                    <li><i class="fas fa-check"></i> Database Integration</li>
+                    <li><i class="fas fa-check"></i> API Development</li>
+                </ul>
+                <button class="pricing-cta" onclick="openCustomQuote('Custom Web App')">Get Custom Quote</button>
+            </div>
+        </div>
+
+        <!-- Contact Section with Integrated Quote Form -->
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+977 9703574761</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/7yathartha5_shrestha3" target="_blank">@7yathartha5_shrestha3</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>ytsshrts@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="quote-form" onsubmit="sendEmail(event)">
+                <div class="quote-header">
+                    <i class="fas fa-paper-plane"></i>
+                    <h2>Get Your Custom Quote</h2>
+                    <p>Tell us about your project and we'll get back to you within 24 hours</p>
+                </div>
+                <input type="hidden" name="form_type" value="custom_quote">
+                <input type="hidden" name="package_type" id="package_type">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="preferred_currency">Preferred Currency</label>
+                        <select name="preferred_currency" id="preferred_currency" required>
+                            <option value="">Select Currency</option>
+                            <option value="USD">USD ($)</option>
+                            <option value="EUR">EUR (€)</option>
+                            <option value="GBP">GBP (£)</option>
+                            <option value="NPR">NPR (रू)</option>
+                            <option value="INR">INR (₹)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="proposed_budget">Proposed Budget</label>
+                        <input type="number" id="proposed_budget" name="proposed_budget" placeholder="Enter amount" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline">Project Timeline</label>
+                    <select name="timeline" id="timeline" required>
+                        <option value="">Select Timeline</option>
+                        <option value="urgent">Urgent (Within 1 week)</option>
+                        <option value="normal">Normal (2-3 weeks)</option>
+                        <option value="relaxed">Relaxed (1 month+)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="requirements">Project Requirements</label>
+                    <textarea id="requirements" name="requirements" placeholder="Tell us about your specific needs and requirements" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="submit-quote">
+                    <span>Get Quote</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+977 9703574761</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/7yathartha5_shrestha3" target="_blank">@7yathartha5_shrestha3</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>ytsshrts@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm" onsubmit="return sendEmail(event)">
+                <h2>Send Us a Message</h2>
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" id="submit-btn">
+                    <span class="button-text">Send Message</span>
+                    <span class="button-loader hidden">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Success/Error Messages -->
+        <div id="success-message" class="alert success hidden">
+            Message sent successfully!
+        </div>
+        <div id="error-message" class="alert error hidden">
+            Something went wrong. Please try again.
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 WebSell. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Currency conversion rates (example rates - you should use real-time rates)
+        const rates = {
+            USD: 1,
+            EUR: 0.85,
+            GBP: 0.73,
+            NPR: 132.50,
+            INR: 83.20
+        };
+
+        function updatePrices() {
+            const currency = document.getElementById('currency').value;
+            const symbols = {
+                USD: '$',
+                EUR: '€',
+                GBP: '£',
+                NPR: 'रू',
+                INR: '₹'
+            };
+
+            document.querySelectorAll('.price').forEach(price => {
+                const baseAmount = parseInt(price.querySelector('.amount').getAttribute('data-base-price') || price.querySelector('.amount').innerText);
+                const newAmount = Math.round(baseAmount * rates[currency]);
+                price.querySelector('.currency-symbol').innerText = symbols[currency];
+                price.querySelector('.amount').innerText = newAmount;
+            });
+        }
+
+        // Set package type when clicking Get Custom Quote button
+        function openCustomQuote(packageType) {
+            document.getElementById('package_type').value = packageType;
+            document.querySelector('.quote-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Store base prices on load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.amount').forEach(amount => {
+                amount.setAttribute('data-base-price', amount.innerText);
+            });
+        });
+
+        function sendEmail(event) {
+            event.preventDefault();
+
+            // Get form elements
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const currencySelect = document.querySelector('select[name="preferred_currency"]');
+            const timelineSelect = document.querySelector('select[name="timeline"]');
+            const requirementsTextarea = document.querySelector('textarea[name="requirements"]');
+            
+            // Show loading state
+            const submitBtn = document.getElementById('submit-btn');
+            const buttonText = submitBtn.querySelector('.button-text');
+            const buttonLoader = submitBtn.querySelector('.button-loader');
+            
+            buttonText.classList.add('hidden');
+            buttonLoader.classList.remove('hidden');
+            submitBtn.disabled = true;
+
+            // Get form values
+            const currency = currencySelect.value || 'USD';
+            let timelineValue = '2-3 weeks';
+            
+            if (timelineSelect.value === 'Relaxed') {
+                timelineValue = '1 month+';
+            } else if (timelineSelect.value === 'Urgent') {
+                timelineValue = 'Within 24 hours';
+            }
+
+            // Prepare email template parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: requirementsTextarea.value,
+                to_email: 'ytsshrts@gmail.com',
+                preferred_currency: currency,
+                timeline: timelineValue
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_z3wzl4j', 'template_hcsyucg', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showMessage('success-message');
+                    document.getElementById('contactForm').reset();
+                })
+                .catch(function(error) {
+                    console.log('FAILED...', error);
+                    showMessage('error-message');
+                })
+                .finally(() => {
+                    // Remove loading states and enable submit button
+                    buttonText.classList.remove('hidden');
+                    buttonLoader.classList.add('hidden');
+                    submitBtn.disabled = false;
+                });
+
+            return false;
+        }
+
+        function showMessage(messageId) {
+            const message = document.getElementById(messageId);
+            message.classList.remove('hidden');
+            
+            setTimeout(() => {
+                message.classList.add('hidden');
+            }, 5000);
+        }
+
+        function scrollToPricing() {
+            const pricingSection = document.getElementById('pricing');
+            pricingSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    </script>
+</body>
+</html>
