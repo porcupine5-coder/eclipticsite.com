@@ -1,12 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
-import { FiSun, FiMoon, FaBars, FaTimes, FaArrowRight, FaShoppingCart, FaChartLine, FaMobileAlt, FaRocket, FaCode, FaSearch, FaShieldAlt, FaHandHoldingUsd, FaCheck, FaPhone, FaInstagram, FaEnvelope, FaSpinner, FaPaperPlane, FaFacebook, FaTwitter, FaLinkedin, FiChevronDown } from 'react-icons/all';
+import { useState, useEffect } from 'react';
+import { FiSun, FiMoon, FiChevronDown } from 'react-icons/fi';
+import { FaBars, FaTimes, FaArrowRight, FaShoppingCart, FaChartLine, FaMobileAlt, FaRocket, FaCode, FaSearch, FaShieldAlt, FaHandHoldingUsd, FaCheck, FaPhone, FaInstagram, FaEnvelope, FaSpinner, FaPaperPlane, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import emailjs from '@emailjs/browser';
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.defaults({ ease: 'power2.out', duration: 0.6 });
-gsap.config({ nullTargetWarn: false, force3D: true });
 emailjs.init('_aSFCvXEp-CaA5k_2');
 
 const CURRENCIES = [
@@ -72,13 +71,13 @@ function App() {
       <section id="home" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-gradient-to-br from-indigo-600 to-purple-700">
         <div className="absolute inset-0 bg-black/30 z-10" />
         <div className="relative z-20 px-8">
-          <h1 className="text-6xl font-bold text-white mb-6">Transform Your E-commerce Vision</h1>
-          <p className="text-xl text-white/90 mb-8">Powerful solutions for modern online businesses</p>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Transform Your E-commerce Vision</h1>
+          <p className="text-lg md:text-xl text-white/90 mb-8">Powerful solutions for modern online businesses</p>
           <button onClick={() => scrollTo('#pricing')} className="bg-white text-indigo-600 px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all">Get Today</button>
         </div>
       </section>
 
-      <section id="services" className="py-24 px-8 bg-white dark:bg-slate-900">
+      <section id="services" className="py-24 px-4 md:px-8 bg-white dark:bg-slate-900">
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-slate-100 mb-16">Our Services</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
@@ -97,7 +96,7 @@ function App() {
         </div>
       </section>
 
-      <section id="features" className="py-24 px-8 bg-gray-50 dark:bg-slate-800">
+      <section id="features" className="py-24 px-4 md:px-8 bg-gray-50 dark:bg-slate-800">
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-slate-100 mb-16">Why Choose Us</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
@@ -119,7 +118,7 @@ function App() {
         </div>
       </section>
 
-      <section id="pricing" className="py-24 px-8 bg-white dark:bg-slate-900">
+      <section id="pricing" className="py-24 px-4 md:px-8 bg-white dark:bg-slate-900">
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-slate-100 mb-8">Pricing Plans</h2>
         <div className="flex justify-center mb-12">
           <select value={currency} onChange={(e) => setCurrency(e.target.value)} className="px-4 py-2 border-2 border-indigo-500 rounded-lg dark:bg-slate-800 dark:text-slate-100">
@@ -148,19 +147,19 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" className="py-24 px-8 bg-gray-50 dark:bg-slate-800">
+      <section id="contact" className="py-24 px-4 md:px-8 bg-gray-50 dark:bg-slate-800">
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-slate-100 mb-16">Get In Touch</h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-md">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-6">Contact Info</h3>
             <div className="space-y-5">
               <div className="flex items-center gap-4"><FaPhone className="text-indigo-600" /><p className="text-gray-900 dark:text-slate-100">+977 9703574761</p></div>
-              <div className="flex items-center gap-4"><FaInstagram className="text-indigo-600" /><a href="https://www.instagram.com/7yathartha5_shrestha3" target="_blank" className="text-gray-900 dark:text-slate-100 hover:text-indigo-600">@7yathartha5_shrestha3</a></div>
+              <div className="flex items-center gap-4"><FaInstagram className="text-indigo-600" /><a href="https://www.instagram.com/7yathartha5_shrestha3" target="_blank" rel="noreferrer" className="text-gray-900 dark:text-slate-100 hover:text-indigo-600">@7yathartha5_shrestha3</a></div>
               <div className="flex items-center gap-4"><FaEnvelope className="text-indigo-600" /><p className="text-gray-900 dark:text-slate-100">ytsshrts@gmail.com</p></div>
             </div>
           </div>
           <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-md">
-            <form onSubmit={(e) => { e.preventDefault(); emailjs.send('service_z3wzl4j', 'template_hcsyucg', { from_name: e.target.name.value, from_email: e.target.email.value, subject: e.target.subject.value, message: e.target.message.value, to_email: 'ytsshrts@gmail.com' }).then(() => alert('Message sent!')); e.target.reset(); }}>
+            <form onSubmit={(e) => { e.preventDefault(); emailjs.send('service_z3wzl4j', 'template_hcsyucg', { from_name: e.target.name.value, from_email: e.target.email.value, subject: e.target.subject.value, message: e.target.message.value, to_email: 'ytsshrts@gmail.com' }).then(() => alert('Message sent!')).catch(() => alert('Failed to send')); e.target.reset(); }}>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-6">Send Message</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <input type="text" name="name" placeholder="Your Name" required className="px-4 py-3 border-2 border-gray-300 dark:border-slate-600 rounded-lg dark:bg-slate-700 dark:text-slate-100 focus:border-indigo-500 focus:outline-none" />
@@ -174,13 +173,13 @@ function App() {
         </div>
       </section>
 
-      <footer className="bg-gradient-to-b from-slate-900 to-slate-950 text-white py-16 px-8">
+      <footer className="bg-gradient-to-b from-slate-900 to-slate-950 text-white py-16 px-4 md:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <h3 className="text-3xl font-bold mb-4">Eclipticsite</h3>
           <p className="text-gray-400 mb-8">Building exceptional web experiences</p>
           <div className="flex justify-center gap-6 mb-8">
             {[{ Icon: FaFacebook, href: '#' }, { Icon: FaTwitter, href: '#' }, { Icon: FaLinkedin, href: '#' }, { Icon: FaInstagram, href: 'https://www.instagram.com/7yathartha5_shrestha3' }].map((s, i) => (
-              <a key={i} href={s.href} target={s.href !== '#' ? '_blank' : undefined} className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 text-gray-400 hover:text-indigo-400 transition-colors"><s.Icon size={20} /></a>
+              <a key={i} href={s.href} target={s.href !== '#' ? '_blank' : undefined} rel="noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 text-gray-400 hover:text-indigo-400 transition-colors"><s.Icon size={20} /></a>
             ))}
           </div>
           <div className="border-t border-gray-800 pt-6"><p className="text-gray-500 text-sm">&copy; 2024 Eclipticsite. All rights reserved.</p></div>
