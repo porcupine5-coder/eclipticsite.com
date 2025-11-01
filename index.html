@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eclipticsite - Get your website today">
+    <title>Eclipticsite | Modern E-commerce Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your user ID
+            emailjs.init("_aSFCvXEp-CaA5k_2"); // Replace with your EmailJS user ID
+        })();
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">Eclipticsite</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your E-commerce Vision</h1>
+            <p>Powerful solutions for modern online businesses</p>
+            <button class="cta-button" onclick="scrollToPricing()">Get Today</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-shopping-cart service-icon"></i>
+                <h3>E-commerce Solutions</h3>
+                <p>Complete online store setup with payment integration</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-line service-icon"></i>
+                <h3>Analytics & Insights</h3>
+                <p>Detailed reporting and performance tracking</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt service-icon"></i>
+                <h3>Mobile Optimization</h3>
+                <p>Responsive design for all devices</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <!-- Core Features -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Fast Development</h3>
+                <p>Quick turnaround time with quality code and modern development practices</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Responsive Design</h3>
+                <p>Perfectly optimized for all devices - mobile, tablet, and desktop</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Clean Code</h3>
+                <p>Well-structured, maintainable, and efficient codebase</p>
+            </div>
+
+            <!-- Technical Features -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>SEO Optimized</h3>
+                <p>Built with search engine optimization best practices</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Security First</h3>
+                <p>Enhanced security measures to protect your website and data</p>
+            </div>
+
+
+
+            <!-- Business Features -->
+
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>Flexible Pricing</h3>
+                <p>Negotiable rates and customizable packages to fit your budget</p>
+            </div>
+
+
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <h2 class="section-title">Pricing Plans</h2>
+        <div class="currency-selector">
+            <label for="currency">Select Currency:</label>
+            <select id="currency" onchange="updatePrices()">
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="NPR">NPR (रू)</option>
+                <option value="INR">INR (₹)</option>
+            </select>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Basic Website</h3>
+                    <div class="price">
+                        <span class="currency-symbol">$</span>
+                        <span class="amount">25</span>
+                    </div>
+                    <p class="negotiable">Price is negotiable</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Responsive Design</li>
+                    <li><i class="fas fa-check"></i> 5 Pages</li>
+                    <li><i class="fas fa-check"></i> Contact Form</li>
+                    <li><i class="fas fa-check"></i> Basic SEO</li>
+                </ul>
+                <button class="pricing-cta" onclick="openCustomQuote('Basic Website')">Get Custom Quote</button>
+            </div>
+
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <div class="pricing-header">
+                    <h3>E-commerce Website</h3>
+                    <div class="price">
+                        <span class="currency-symbol">$</span>
+                        <span class="amount">75</span>
+                    </div>
+                    <p class="negotiable">Price is negotiable</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> All Basic Features</li>
+                    <li><i class="fas fa-check"></i> E-commerce Integration</li>
+                    <li><i class="fas fa-check"></i> Payment Gateway</li>
+                    <li><i class="fas fa-check"></i> Product Management</li>
+                </ul>
+                <button class="pricing-cta" onclick="openCustomQuote('E-commerce Website')">Get Custom Quote</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Custom Web App</h3>
+                    <div class="price">
+                        <span class="currency-symbol">$</span>
+                        <span class="amount">199</span>
+                    </div>
+                    <p class="negotiable">Price is negotiable</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Custom Development</li>
+                    <li><i class="fas fa-check"></i> Advanced Features</li>
+                    <li><i class="fas fa-check"></i> Database Integration</li>
+                    <li><i class="fas fa-check"></i> API Development</li>
+                </ul>
+                <button class="pricing-cta" onclick="openCustomQuote('Custom Web App')">Get Custom Quote</button>
+            </div>
+        </div>
+
+        <!-- Contact Section with Integrated Quote Form -->
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+977 9703574761</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/7yathartha5_shrestha3" target="_blank">@7yathartha5_shrestha3</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>ytsshrts@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="quote-form" onsubmit="sendQuoteEmail(event)">
+                <div class="quote-header">
+                    <i class="fas fa-paper-plane"></i>
+                    <h2>Get Your Custom Quote</h2>
+                    <p>Tell us about your project and we'll get back to you within 24 hours</p>
+                </div>
+                <input type="hidden" name="form_type" value="custom_quote">
+                <input type="hidden" name="package_type" id="package_type">
+
+                <div class="form-group">
+                    <label for="quote_name">Full Name</label>
+                    <input type="text" id="quote_name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quote_email">Email Address</label>
+                    <input type="email" id="quote_email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="preferred_currency">Preferred Currency</label>
+                        <select name="preferred_currency" id="preferred_currency" required>
+                            <option value="">Select Currency</option>
+                            <option value="USD">USD ($)</option>
+                            <option value="EUR">EUR (€)</option>
+                            <option value="GBP">GBP (£)</option>
+                            <option value="NPR">NPR (रू)</option>
+                            <option value="INR">INR (₹)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="proposed_budget">Proposed Budget</label>
+                        <input type="number" id="proposed_budget" name="proposed_budget" placeholder="Enter amount" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline">Project Timeline</label>
+                    <select name="timeline" id="timeline" required>
+                        <option value="">Select Timeline</option>
+                        <option value="urgent">Urgent (Within 1 week)</option>
+                        <option value="normal">Normal (2-3 weeks)</option>
+                        <option value="relaxed">Relaxed (1 month+)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="requirements">Project Requirements</label>
+                    <textarea id="requirements" name="requirements" placeholder="Tell us about your specific needs and requirements" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="submit-quote">
+                    <span>Get Quote</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+977 9703574761</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/7yathartha5_shrestha3" target="_blank">@7yathartha5_shrestha3</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>ytsshrts@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm" onsubmit="return sendContactEmail(event)">
+                <h2>Send Us a Message</h2>
+                <div class="form-group">
+                    <input type="text" id="contact_name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="contact_email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="contact_subject" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="contact_message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" id="submit-btn">
+                    <span class="button-text">Send Message</span>
+                    <span class="button-loader hidden">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Success/Error Messages -->
+        <div id="success-message" class="alert success hidden">
+            Message sent successfully!
+        </div>
+        <div id="error-message" class="alert error hidden">
+            Something went wrong. Please try again.
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 WebSell. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Currency conversion rates (example rates - you should use real-time rates)
+        const rates = {
+            USD: 1,
+            EUR: 0.85,
+            GBP: 0.73,
+            NPR: 132.50,
+            INR: 83.20
+        };
+
+        function updatePrices() {
+            const currency = document.getElementById('currency').value;
+            const symbols = {
+                USD: '$',
+                EUR: '€',
+                GBP: '£',
+                NPR: 'रू',
+                INR: '₹'
+            };
+
+            document.querySelectorAll('.price').forEach(price => {
+                const baseAmount = parseInt(price.querySelector('.amount').getAttribute('data-base-price') || price.querySelector('.amount').innerText);
+                const newAmount = Math.round(baseAmount * rates[currency]);
+                price.querySelector('.currency-symbol').innerText = symbols[currency];
+                price.querySelector('.amount').innerText = newAmount;
+            });
+        }
+
+        // Set package type when clicking Get Custom Quote button
+        function openCustomQuote(packageType) {
+            document.getElementById('package_type').value = packageType;
+            document.querySelector('.quote-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Store base prices on load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.amount').forEach(amount => {
+                amount.setAttribute('data-base-price', amount.innerText);
+            });
+        });
+
+        function sendQuoteEmail(event) {
+            event.preventDefault();
+
+            // Get form elements
+            const name = document.getElementById('quote_name').value;
+            const email = document.getElementById('quote_email').value;
+            const budget = document.getElementById('proposed_budget').value;
+            const currency = document.getElementById('preferred_currency').value;
+            const timeline = document.getElementById('timeline').value;
+            const requirements = document.getElementById('requirements').value;
+            const packageType = document.getElementById('package_type').value;
+
+            // Prepare email template parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                package_type: packageType,
+                preferred_currency: currency,
+                proposed_budget: budget,
+                timeline: timeline,
+                requirements: requirements,
+                to_email: 'ytsshrts@gmail.com'
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_z3wzl4j', 'template_hcsyucg', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showMessage('success-message');
+                    event.target.reset();
+                })
+                .catch(function(error) {
+                    console.log('FAILED...', error);
+                    showMessage('error-message');
+                });
+        }
+
+        function sendContactEmail(event) {
+            event.preventDefault();
+
+            // Get form elements
+            const name = document.getElementById('contact_name').value;
+            const email = document.getElementById('contact_email').value;
+            const subject = document.getElementById('contact_subject').value;
+            const message = document.getElementById('contact_message').value;
+
+            // Show loading state
+            const submitBtn = document.getElementById('submit-btn');
+            const buttonText = submitBtn.querySelector('.button-text');
+            const buttonLoader = submitBtn.querySelector('.button-loader');
+
+            buttonText.classList.add('hidden');
+            buttonLoader.classList.remove('hidden');
+            submitBtn.disabled = true;
+
+            // Prepare email template parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+                to_email: 'ytsshrts@gmail.com'
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_z3wzl4j', 'template_hcsyucg', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showMessage('success-message');
+                    document.getElementById('contactForm').reset();
+                })
+                .catch(function(error) {
+                    console.log('FAILED...', error);
+                    showMessage('error-message');
+                })
+                .finally(() => {
+                    // Remove loading states and enable submit button
+                    buttonText.classList.remove('hidden');
+                    buttonLoader.classList.add('hidden');
+                    submitBtn.disabled = false;
+                });
+
+            return false;
+        }
+
+        function showMessage(messageId) {
+            const message = document.getElementById(messageId);
+            message.classList.remove('hidden');
+
+            setTimeout(() => {
+                message.classList.add('hidden');
+            }, 5000);
+        }
+
+        function scrollToPricing() {
+            const pricingSection = document.getElementById('pricing');
+            pricingSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    </script>
+</body>
+</html>
